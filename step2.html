@@ -43,34 +43,58 @@
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"> -->
 <!-- 	<link rel="manifest" href="/manifest.json"> -->
 	<meta name="msapplication-TileColor" content="#ffffff">
-	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<!-- 	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png"> -->
 	<meta name="theme-color" content="#ffffff">
 	    
         <title>히어로시그널</title>
-	<link rel=”shortcut icon” href=”https://cardanosoft.github.io/roullet/favicon.ico”>
+	<link rel=”shortcut icon” href=”./favicon.ico”>
         <link rel="stylesheet" href="main.css" type="text/css" />
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
         <script type="text/javascript" src="./Winwheel.js"></script>
+	    	    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 <!--         <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script> -->
     </head>
     <body>
-        <div class="mainWrap" align="center">
+        <div class="mainWrap step2Main" align="center">
 				   <div class="imgWrap">
-			   <div class="text21">실시간 코인 당첨자</div>
+			   <div class="text21" style="font-weight: bold; font-size: 4rem;">실시간 코인 당첨자</div>
              <div class="imgLine1">
-               <div><img class="coin1" src="./000-removebg-preview.png" /><div class="personName0"></div></div>
-               <div><img class="coin2" src="./001-removebg-preview.png" /><div class="personName1"></div></div>
+               <div><img class="coin0 animate__zoomIn animate__animated animate_infinite animate__slow" src="./000-removebg-preview.png" />
+		       <div class="personName0"></div>
+	       <div class="randTime0"></div>
+	       </div>
+		<div><img class="coin3  animate__zoomIn animate__animated animate_infinite animate__slow" src="./003-removebg-preview.png" />
+			<div class="personName3"></div>
+		<div class="randTime3"></div>
+		</div>
+		     
+               
              </div>
              
              <div class="imgLine2">
-               <div><img class="coin3" src="./002-removebg-preview.png" /><div class="personName2"></div></div>
-               <div><img class="coin4" src="./003-removebg-preview.png" /><div class="personName3"></div></div>
+               <div><img class="coin1 animate__zoomIn animate__animated animate_infinite animate__slow" src="./001-removebg-preview.png" />
+		       <div class="personName1"></div>
+	       <div class="randTime1"></div>
+	       </div>
+               <div><img class="coin4 animate__zoomIn animate__animated animate_infinite animate__slow" src="./004-removebg-preview.png" />
+		       <div class="personName4"></div>
+		<div class="randTime4"></div>
+	       </div>
              </div>
              
              <div class="imgLine3">
-               <div><img class="coin5" src="./004-removebg-preview.png" /><div class="personName4"></div></div>
-               <div><img class="coin6" src="./005-removebg-preview.png" /><div class="personName5"></div></div>
+               <div><img class="coin5 animate__zoomIn animate__animated animate_infinite animate__slow" src="./005-removebg-preview.png" />
+		       <div class="personName5"></div>
+	       <div class="randTime5"></div>
+	       </div>
+               <div><img class="coin2 animate__zoomIn animate__animated animate_infinite animate__slow" src="./002-removebg-preview.png" />
+		       <div class="personName2"></div>
+	       <div class="randTime2"></div>
+	       </div>
              </div>
 		   </div>
 				   </div>
@@ -82,7 +106,19 @@ $(document).ready(function() {
 for (var i = 0; i <7; i++) {	
 	var ranNum1 = Math.floor((Math.random() * 9) +1);
 	var ranNum2 = Math.floor((Math.random() * 9) +1);
+	var ranNum3 = Math.floor((Math.random() * 6) +1); // 0~5 사이의 숫자
+	let today = new Date();
+	let randDate = new Date(today.getTime() - ranNum3 * 60000);
+	let year = randDate.getFullYear(); // 년도
+	let month = randDate.getMonth() + 1;  // 월
+	let day = randDate.getDate();  // 날짜
+	var hours = randDate.getHours(); // 시
+	hours = ("0" + hours).slice(-2); // 두자리 two digit 으로 변경
+	var minutes = randDate.getMinutes(); // 분
+	minutes = ("0" + minutes).slice(-2); // 두자리 two digit 으로 변경
+	 
 	$('.personName'+i).text(name1[ranNum1]+'*'+name2[ranNum2]);
+	$('.randTime'+i).text(year + '년 ' + month + '월 ' + day + '일 ' + hours + '시 ' + minutes + '분');
 };
 });
 	

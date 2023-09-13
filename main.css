@@ -147,6 +147,25 @@ padding: .5rem 1rem;
 .stage, #roullet {
 	width: 100% !important;
 }
+	.step2Main .personName0,
+.step2Main .personName1,
+.step2Main .personName2,
+.step2Main .personName3,
+.step2Main .personName4,
+.step2Main .personName5 {
+	font-size: 2rem;
+	}
+	.step2Main .randTime0,
+.step2Main .randTime1,
+.step2Main .randTime2,
+.step2Main .randTime3,
+.step2Main .randTime4,
+.step2Main .randTime5 {
+		margin-bottom: 5rem;
+    opacity: .6;
+    font-size: 1.2rem;
+    margin-top: 0.3rem;
+	}
 @media screen (max-width:700px) {
  html {
    transform: translate(0, 44%) scale(1.8);
